@@ -18,16 +18,15 @@
  * 
 */
 
-var e1 = document.getElementById("navbar__list");
+let navlist = document.getElementById("navbar__list");
 
-var e2 = document.getElementsByTagName("section");
+let sections = document.getElementsByTagName("section");
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
-
 
 
 /**
@@ -38,13 +37,15 @@ var e2 = document.getElementsByTagName("section");
 
 // build the nav
 
+for (let section of sections)
+{
+    let listelement = document.createElement('a');
+    listelement.innerText = section.getAttribute("data-nav");
+    listelement.setAttribute('href',"#"+section.getAttribute("id"))
+    navlist.appendChild(listelement);
+    
+}
 
-for (let x of e2)
-    {
-        let y = document.createElement('li');
-        y.innerHTML = x.getElementsByTagName('h2')[0].innerText;
-        e1.appendChild(y);
-    }
 // Add class 'active' to section when near top of viewport
 
 

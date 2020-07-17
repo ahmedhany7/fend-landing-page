@@ -8,11 +8,15 @@
  *
 */
 
-.navbar__menu
+.navbar__menu a
 {
+    text-decoration: none;
     color: black;
     font-size: 1.5em;
+    margin: 1.5em;
 }
+
+
 /* ---- Base Rules ---- */
 body {
     background: rgb(136,203,171);
