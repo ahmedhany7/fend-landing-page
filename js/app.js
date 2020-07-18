@@ -39,6 +39,7 @@ for (let section of sections)
 {
     let listelement = document.createElement('a');
     listelement.innerText = section.getAttribute("data-nav");
+    // Scroll to section on link click
     listelement.setAttribute('href',"#"+section.getAttribute("id"));
     navlist.appendChild(listelement);
 }
@@ -64,6 +65,13 @@ document.addEventListener("scroll", () =>{
 });
 
 
+/**
+ * End Main Functions
+ * Begin Events
+ * 
+*/
+
+// hide navbar
 
 let navbar = document.getElementsByClassName("navbar__menu")[0];
 (function() {        
@@ -81,20 +89,3 @@ let navbar = document.getElementsByClassName("navbar__menu")[0];
     };
 
 })();
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
