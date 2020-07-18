@@ -51,17 +51,36 @@ document.addEventListener("scroll", () =>{
     for (let section of sections)
     {
         let navitem = navlist.querySelector('[href="#'+section.id+'"]');
-        let offset = 1;
+        let offset = 100;
         if (section.offsetTop -offset <= scrollPos && section.offsetTop + section.offsetHeight-offset > scrollPos) {
-            section.classList.add("your-active-class");
-            navitem.classList.add("your-active-class");
+            section.classList.add("active");
+            navitem.classList.add("active");
         }
         else{
-            section.classList.remove("your-active-class");
-            navitem.classList.remove("your-active-class");
+            section.classList.remove("active");
+            navitem.classList.remove("active");
         }
     }
 });
+
+
+
+let navbar = document.getElementsByClassName("navbar__menu")[0];
+(function() {        
+    let timer;
+    document.addEventListener("scroll",function () {
+        clearTimeout(timer);
+        timer = setTimeout( hidebar , 1000 );
+
+        navbar.style.display = "block";
+    });
+
+    let hidebar = function () { 
+        // do stuff
+        navbar.style.display = "none";
+    };
+
+})();
 
 // Scroll to anchor ID using scrollTO event
 
