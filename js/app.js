@@ -39,9 +39,15 @@ for (let section of sections)
 {
     let listelement = document.createElement('a');
     listelement.innerText = section.getAttribute("data-nav");
-    // Scroll to section on link click
-    listelement.setAttribute('href',"#"+section.getAttribute("id"));
+    listelement.setAttribute('href',"#"+section.id);
     navlist.appendChild(listelement);
+    
+    // Scroll to section on link click
+    navlist.querySelector('[href="#'+section.id+'"]').addEventListener("click",function(event) {
+        event.preventDefault();
+        section.scrollIntoView({behavior: "smooth"});
+    }
+    );
 }
 
 // Add class 'active' to section when near top of viewport
@@ -78,7 +84,7 @@ let navbar = document.getElementsByClassName("navbar__menu")[0];
     let timer;
     document.addEventListener("scroll",function () {
         clearTimeout(timer);
-        timer = setTimeout( hidebar , 1000 );
+        timer = setTimeout( hidebar , 5000 );
 
         navbar.style.display = "block";
     });
